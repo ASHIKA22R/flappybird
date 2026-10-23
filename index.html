@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Bird — Advanced Edition</title>
+  <meta name="description" content="Play Flappy Bird Advanced Edition — dodge pipes, earn combos, climb the leaderboard!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+
+  <main class="game-shell">
+    <header class="game-header">
+      <h1 class="game-title">&#x1F426; Flappy Bird</h1>
+    </header>
+
+    <div class="hud-row">
+      <div class="hud-pill" id="hud-score">
+        <span class="hud-label">Score</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="hud-pill combo-pill hidden" id="hud-combo">
+        <span class="hud-label">Combo</span>
+        <strong id="combo">x1</strong>
+      </div>
+      <div class="hud-pill" id="hud-best">
+        <span class="hud-label">Best</span>
+        <strong id="best">0</strong>
+      </div>
+    </div>
+
+    <div class="game-wrap" id="game-wrap">
+      <canvas id="game" width="420" height="620" aria-label="Flappy Bird Advanced game canvas" role="img"></canvas>
+
+      <!-- START overlay -->
+      <div class="overlay" id="overlay-start">
+        <div class="overlay-glass">
+          <div class="overlay-emoji">&#x1F426;</div>
+          <h2>Flappy Bird</h2>
+          <p>Dodge the pipes. Earn combos.<br>Beat your best score!</p>
+          <div class="control-hints">
+            <span>&#x1F5B1;&#xFE0F; Click</span>
+            <span>&#x2328;&#xFE0F; Space / &#x2191;</span>
+            <span>&#x1F4F1; Tap</span>
+          </div>
+          <button id="btn-start" class="btn-primary pulse">Start Game</button>
+        </div>
+      </div>
+
+      <!-- GAMEOVER overlay -->
+      <div class="overlay hidden" id="overlay-gameover">
+        <div class="overlay-glass gameover-glass">
+          <div class="overlay-emoji" id="go-emoji">&#x1F4A5;</div>
+          <h2 id="go-title">Game Over!</h2>
+          <div class="score-display">
+            <div class="score-box">
+              <span>Score</span>
+              <strong id="go-score">0</strong>
+            </div>
+            <div class="score-box">
+              <span>Best</span>
+              <strong id="go-best">0</strong>
+            </div>
+          </div>
+          <div id="achievement-toast" class="achievement-toast hidden">
+            <span>&#x1F3C6;</span><span id="achievement-text"></span>
+          </div>
+          <button id="btn-restart" class="btn-primary">Play Again</button>
+        </div>
+      </div>
+
+      <!-- Floating score popups container -->
+      <div id="popups" aria-hidden="true"></div>
+    </div>
+
+    <!-- Achievement ribbon -->
+    <div class="achievement-ribbon hidden" id="achievement-ribbon" aria-live="polite"></div>
+
+    <div class="bottom-bar">
+      <button id="btn-sound" class="btn-icon" title="Toggle Sound" aria-label="Toggle Sound">&#x1F50A;</button>
+      <div class="diff-label" id="diff-label">EASY</div>
+      <button id="btn-reset-best" class="btn-icon small" title="Reset best score" aria-label="Reset best score">&#x1F5D1;&#xFE0F;</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
